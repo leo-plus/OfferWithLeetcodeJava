@@ -29,12 +29,24 @@ class Solution {
         int j = r;
         String tmp = strs[i];
         while (i < j) {
-            while (i < j && (strs[l] + strs[i]).compareTo((strs[i] + strs[l])) <= 0) {
-                i++;
+            while (true) {
+                String a = strs[j] + strs[l];
+                String b = strs[l] + strs[j];
+                if (a.compareTo(b) >= 0 && i < j) {
+                    j--;
+                } else {
+                    break;
+                }
             }
 
-            while (i < j && (strs[l] + strs[j]).compareTo((strs[j] + strs[l])) >= 0) {
-                j--;
+            while (true) {
+                String a = strs[i] + strs[l];
+                String b = strs[l] + strs[i];
+                if (a.compareTo(b) <= 0 && i < j) {
+                    i++;
+                } else {
+                    break;
+                }
             }
 
             tmp = strs[i];
@@ -48,3 +60,5 @@ class Solution {
         fastSort(strs, i + 1, r);
     }
 }
+
+// https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/solution/mian-shi-ti-45-ba-shu-zu-pai-cheng-zui-xiao-de-s-4/
