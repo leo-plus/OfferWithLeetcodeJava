@@ -24,7 +24,5 @@ class Solution {
     }
 }
 
-// https://
-// leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/solution/mian-shi-ti-48-zui-chang-bu-han-zhong-fu-zi-fu-d-9/
-
-// 最好结合书里的例子看，下面这个题解太抽象
+// https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/solution/mian-shi-ti-48-zui-chang-bu-han-zhong-fu-zi-fu-d-9/
+// 最好结合书里的例子看，上面这个题解太抽象

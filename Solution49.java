@@ -1,30 +1,32 @@
-import java.util.HashMap;
-
 class Solution {
-    public int lengthOfLongestSubstring(String s) {
-        int preD = 0;
-        int res = 0;
-        HashMap<Character, Integer> dic = new HashMap<>();
-        for (int j = 0; j < s.length(); j++) {
-            int i = dic.getOrDefault(s.charAt(j), -1);
-            dic.put(s.charAt(j), j);
-            int d;
-            if (preD < (j - i)) {
-                d = preD + 1;
-            } else {
-                d = j - i;
+    public int nthUglyNumber(int n) {
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        int[] dp = new int[n];
+        dp[0] = 1;
+
+        for (int i = 1; i < n; i++) {
+            int n1 = dp[a] * 2;
+            int n2 = dp[b] * 3;
+            int n3 = dp[c] * 5;
+            dp[i] = Math.min(Math.min(n1, n2), n3);
+            if (dp[i] == n1) {
+                a++;
             }
 
-            res = Math.max(res, d);
-            preD = d;
+            if (dp[i] == n2) {
+                b++;
+            }
 
+            if (dp[i] == n3) {
+                c++;
+            }
         }
 
-        return res;
+        return dp[n - 1];
     }
 }
-
-// https://
-// leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/solution/mian-shi-ti-48-zui-chang-bu-han-zhong-fu-zi-fu-d-9/
-
-// 最好结合书里的例子看，下面这个题解太抽象
+/**
+ * https://leetcode-cn.com/problems/chou-shu-lcof/solution/mian-shi-ti-49-chou-shu-dong-tai-gui-hua-qing-xi-t/
+ */
