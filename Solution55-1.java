@@ -1,27 +1,11 @@
 class Solution {
-    public int[] singleNumbers(int[] nums) {
-        int sum = 0;
-        for (int i : nums) {
-            sum ^= i;
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
         }
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
 
-        int first = sum & -sum;
-        int a = 0;
-        int b = 0;
-
-        for (int i : nums) {
-            if ((i & first) == 0) {
-                a ^= i;
-            } else {
-                b ^= i;
-            }
-        }
-
-        int[] result = new int[2];
-        result[0] = a;
-        result[1] = b;
-
-        return result;
-
+        return Math.max(left, right) + 1;
     }
 }
