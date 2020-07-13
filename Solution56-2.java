@@ -1,5 +1,5 @@
 public class Solution {
-
+    // input 3,3,4,3
     public int singleNumber(int[] nums) {// 本算法同样适用于数组nums中存在负数的情况
         if (nums.length == 0)
             return -1;// 输入数组长度不符合要求，返回-1;
@@ -15,6 +15,8 @@ public class Solution {
                 bitMask = bitMask << 1;// 左移没有无符号、带符号的区别，都是在右侧补0
             }
         }
+
+        // bitSum = [0133]
         for (int i = 0; i < 32; i++) {// 这种做法使得本算法同样适用于负数的情况
             res = res << 1;
             res += bitSum[i] % 3;// 这两步顺序不能变，否则最后一步会多左移一次
